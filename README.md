@@ -10,6 +10,40 @@ Aquí tienes la versión consolidada y actualizada de tu **Guía de Configuraci�
 
 Esta guía proporciona comandos y directrices para instalar software clave y configurar un entorno de desarrollo y uso general optimizado en Windows 11, utilizando Winget y Chocolatey para una máxima eficiencia.
 
+
+   * TranslucentTB
+   * Git
+   * Python 3.10
+   * Visual Studio Code
+ * System Customization and Utilities
+   * Change Windows Terminal default: PowerShell 5 -> PowerShell 7
+   * Mouse Acceleration
+   * Center Taskbar Items
+   * Show File Extensions
+   * Microsoft Activation Scripts (MAS)
+ * Development Tools
+   * Windows Terminal
+   * PowerShell 4.5
+   * Visual C++ Redistributable for Visual Studio 2015
+ * Boot USB Tools
+   * Rufus v4.4
+   * Multibootusb
+ * Development Utilities (Dev)
+   * trae.ai
+   * VSCode
+   * Python 3 with pip
+ * Wireless Network Tools
+   * PENetwork
+ * Partition Software
+   * EasyBCD
+   * DiskGenius
+   * Wizard Partition
+ * Document Viewers
+   * Sumatra PDF
+
+
+
+
 ### Tabla de Contenidos
 
 1.  [Preparación del Sistema](#1-preparación-del-sistema)
@@ -42,6 +76,194 @@ Esta guía proporciona comandos y directrices para instalar software clave y con
 9.  [Notas de Configuración Avanzada](#9-notas-de-configuración-avanzada)
 
 ---
+
+
+Guía de Configuración "El Capulín" para Windows 11
+Esta guía proporciona comandos y directrices para instalar software clave y configurar un entorno de desarrollo y uso general optimizado en Windows 11, utilizando Winget y Chocolatey para una máxima eficiencia.
+Tabla de Contenidos
+ * Preparación del Sistema
+   * Winget
+   * Chocolatey
+ * Instalación de Software Esencial
+   * Navegador, Compresores y Utilitarios
+ * Herramientas de Desarrollo Fundamentales
+   * Control de Versiones, Lenguajes y Editores
+   * Componentes de Runtime
+ * Personalización y Utilidades del Sistema
+   * Configuración de la Terminal de Windows
+   * Ajustes de Interfaz y Experiencia de Usuario
+   * Scripts de Activación de Microsoft (MAS)
+ * Configuración Avanzada de Terminal y Shell
+   * Emuladores de Terminal
+   * Multiplexores de Terminal
+   * Mejoras de Shell (Prompts Avanzados)
+ * Herramientas de Desarrollo Especializadas
+   * Desarrollo Android
+   * Análisis de Datos con Python
+   * Gestión de Entornos Virtuales
+ * Gestión de Discos y Arranque
+   * Herramientas para USB Booteable
+   * Software de Particiones y Gestores de Arranque
+ * Herramientas Adicionales
+   * Herramientas de Red Inalámbrica
+   * Visores de Documentos
+   * Utilidades de Desarrollo (Dev)
+ * Notas de Configuración Avanzada
+1. Preparación del Sistema
+Antes de instalar aplicaciones, es crucial preparar los gestores de paquetes. Ejecuta tu terminal (PowerShell o CMD) como administrador para los siguientes pasos.
+Winget
+Descripción: Winget es el gestor de paquetes oficial de Windows. Permite instalar, actualizar y gestionar aplicaciones desde la línea de comandos, agilizando la configuración del sistema.
+Comando de Actualización:
+winget upgrade winget
+
+Chocolatey
+Descripción: Chocolatey es un robusto gestor de paquetes para Windows que facilita la instalación de un vasto repositorio de aplicaciones y herramientas.
+Comando de Instalación:
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+Nota: Después de la instalación, cierra y vuelve a abrir tu terminal para que Chocolatey se agregue al PATH del sistema.
+2. Instalación de Software Esencial
+Navegador, Compresores y Utilitarios
+ * Brave Browser: Navegador rápido, privado y seguro con bloqueador de anuncios integrado.
+   winget install Brave.Brave --accept-source-agreements --accept-package-agreements
+
+ * 7-Zip: Archivador de archivos gratuito y de código abierto con alta tasa de compresión.
+   winget install 7zip.7zip --accept-source-agreements --accept-package-agreements
+
+ * WinRAR: Potente utilidad para crear, gestionar y extraer archivos RAR y ZIP.
+   winget install RARLab.WinRAR --accept-source-agreements --accept-package-agreements
+
+ * CPU-Z: Utilidad que proporciona información detallada sobre el hardware de tu sistema.
+   winget install CPUID.CPU-Z --accept-source-agreements --accept-package-agreements
+
+ * TranslucentTB: Herramienta para hacer la barra de tareas de Windows translúcida o transparente.
+   winget install CharlesMilette.TranslucentTB --accept-source-agreements --accept-package-agreements
+
+ * Paint.NET: Un programa editor de gráficos rasterizados gratuito para Microsoft Windows, desarrollado en el .NET Framework.
+   winget install dotPDN.PaintDotNet --accept-source-agreements --accept-package-agreements --force
+
+ * GPU-Z: Una utilidad ligera diseñada para proporcionar información sobre tu tarjeta de video y procesador gráfico.
+   winget install TechPowerUp.GPU-Z --accept-source-agreements --accept-package-agreements --force
+
+ * Rainmeter: Una utilidad gratuita de código abierto para personalizar el escritorio de Windows que permite a los usuarios mostrar skins personalizables en su escritorio.
+   winget install Rainmeter.Rainmeter --accept-source-agreements --accept-package-agreements --force
+
+ * TaskbarX: Un programa que te da control sobre tu barra de tareas, permitiéndote centrar iconos, cambiar su estilo y añadir animaciones.
+   winget install ChrisAndriessen.TaskbarX --accept-source-agreements --accept-package-agreements --force
+
+ * Motrix: Un gestor de descargas con todas las funciones que soporta la descarga de HTTP, FTP, BitTorrent y Magnet.
+   winget install Motrix.Motrix --accept-source-agreements --accept-package-agreements --force
+
+ * Gsudo: Un comando similar a sudo para Windows, que permite comandos elevados directamente desde una terminal no elevada.
+   winget install gerardog.gsudo --accept-source-agreements --accept-package-agreements --force
+
+3. Herramientas de Desarrollo Fundamentales
+Control de Versiones, Lenguajes y Editores
+ * Git: Sistema de control de versiones distribuido, esencial para el desarrollo de software.
+   winget install Git.Git --accept-source-agreements --accept-package-agreements
+
+ * Python: Lenguaje de programación versátil. Se recomienda instalar la última versión estable.
+   winget install Python.Python.3.11 --accept-source-agreements --accept-package-agreements
+
+ * Visual Studio Code: Editor de código fuente ligero, potente y extensible de Microsoft.
+   winget install Microsoft.VisualStudioCode --accept-source-agreements --accept-package-agreements
+
+ * Windows Terminal: Aplicación de terminal moderna que soporta múltiples pestañas, paneles y shells.
+   winget install Microsoft.WindowsTerminal --accept-source-agreements --accept-package-agreements
+
+Componentes de Runtime
+ * Redistribuibles de Visual C++: Componentes requeridos por muchas aplicaciones creadas con Visual Studio.
+   winget install Microsoft.VC++2015-2022Redist-x64 --accept-source-agreements --accept-package-agreements
+winget install Microsoft.VC++2015-2022Redist-x86 --accept-source-agreements --accept-package-agreements
+
+4. Personalización y Utilidades del Sistema
+Configuración de la Terminal de Windows
+Descripción: Actualizar el perfil predeterminado de Windows Terminal a PowerShell 7 (en lugar del PowerShell 5 que viene con Windows) ofrece mejoras significativas en rendimiento y compatibilidad.
+Pasos:
+ * Instala PowerShell 7:
+   winget install Microsoft.PowerShell --accept-source-agreements --accept-package-agreements
+
+ * Abre la Configuración de Windows Terminal (Ctrl + ,).
+ * Ve a la sección "Inicio".
+ * En el menú desplegable "Perfil predeterminado", selecciona "PowerShell" (la versión recién instalada).
+ * Guarda los cambios.
+Ajustes de Interfaz y Experiencia de Usuario
+ * Aceleración del Ratón: Deshabilitar la "precisión del puntero" proporciona un movimiento más consistente.
+   * Pasos Manuales: Ve a Configuración > Bluetooth y dispositivos > Ratón > Configuración adicional del ratón > Opciones de puntero y desmarca Mejorar la precisión del puntero.
+ * Centrar Elementos de la Barra de Tareas:
+   * Pasos Manuales: Haz clic derecho en la barra de tareas, selecciona Configuración de la barra de tareas > Comportamientos de la barra de tareas y en Alineación de la barra de tareas, elige Centro.
+ * Mostrar Extensiones de Archivo: Ayuda a identificar tipos de archivo y mejora la seguridad.
+   * Pasos Manuales: Abre el Explorador de Archivos, haz clic en Ver > Mostrar y selecciona Extensiones de nombre de archivo.
+ * Deshabilitar Firewall: Este comando deshabilita el Firewall de Windows para todos los perfiles (Dominio, Privado, Público).
+   Set-NetFirewallProfile -Profile Domain,Private,Public -Enabled False
+
+Scripts de Activación de Microsoft (MAS)
+Descripción: Colección de scripts para activar productos de Microsoft.
+Uso con Precaución: Asegúrate de descargar MAS desde su repositorio oficial en GitHub para evitar riesgos. El uso indebido puede violar las licencias de software. Busca "Microsoft Activation Scripts GitHub" para encontrar la fuente oficial.
+5. Configuración Avanzada de Terminal y Shell
+Para una experiencia de línea de comandos superior, considera estas herramientas.
+Emuladores de Terminal
+ * Alacritty: Un emulador de terminal extremadamente rápido, acelerado por GPU.
+ * Kitty: Emulador con aceleración de GPU, altamente personalizable y con funciones avanzadas.
+ * Warp: Un emulador de terminal moderno con IA integrada y flujos de trabajo colaborativos.
+ * iTerm2: (Nota: Exclusivo para macOS) Un potente emulador de terminal para el ecosistema de Apple.
+Multiplexores de Terminal
+ * Tmux: Permite gestionar múltiples sesiones de terminal dentro de una sola ventana, ideal para desarrollo remoto y sesiones persistentes.
+Mejoras de Shell (Prompts Avanzados)
+Estas herramientas mejoran tu shell (como PowerShell o Zsh en WSL) con autocompletado, temas y más.
+ * Zsh: Un shell potente y altamente configurable, una alternativa popular a Bash.
+ * Oh-My-Zsh: Un framework para gestionar tu configuración de Zsh, con miles de plugins y temas.
+ * Powerlevel10k: Un tema para Zsh que ofrece un prompt rápido, informativo y visualmente atractivo.
+ * zsh-autosuggestions: Sugiere comandos mientras escribes, basándose en tu historial.
+ * zsh-syntax-highlighting: Proporciona resaltado de sintaxis en tiempo real en la línea de comandos.
+6. Herramientas de Desarrollo Especializadas
+Desarrollo Android
+ * android.sh: Este script de configuración (https://github.com/donnemartin/dev-setup/blob/master/android.sh) automatiza la instalación del entorno de desarrollo de Android. Es una referencia útil para los paquetes y pasos necesarios.
+Análisis de Datos con Python
+ * Anaconda/Miniconda: Distribuciones de Python para computación científica que incluyen gestores de paquetes y entornos (conda). Miniconda es una versión mínima y recomendada.
+ * NumPy: Biblioteca fundamental para la computación numérica en Python.
+ * Pandas: Biblioteca que proporciona estructuras de datos de alto rendimiento y herramientas de análisis.
+ * JupyterLab / Jupyter Notebook: Entornos interactivos basados en web para ciencia de datos.
+   pip install jupyterlab notebook
+
+Gestión de Entornos Virtuales
+ * Virtualenv: Herramienta para crear entornos de Python aislados y gestionar dependencias por proyecto.
+   pip install virtualenv
+
+ * Python Version Management (pyenv-win): Esta herramienta permite gestionar múltiples versiones de Python en Windows.
+   winget install pyenv-win.pyenv-win --accept-source-agreements --accept-package-agreements --force
+
+ * Windows Subsystem for Linux (WSL): Permite a los usuarios ejecutar un entorno Linux directamente en Windows, sin la sobrecarga de una máquina virtual tradicional.
+   wsl --install
+
+7. Gestión de Discos y Arranque
+Herramientas para USB Booteable
+ * Rufus: Utilidad popular para formatear y crear unidades USB booteables a partir de archivos ISO.
+   * Nota: Generalmente es un ejecutable portátil. Descárgalo desde su sitio web oficial: https://rufus.ie/.
+ * Multibootusb / Ventoy: Herramientas para crear unidades USB con múltiples sistemas operativos "Live". Ventoy es una alternativa moderna y muy recomendada por su facilidad de uso.
+Software de Particiones y Gestores de Arranque
+ * EasyBCD: Utilidad para modificar el gestor de arranque de Windows, útil para configuraciones de arranque dual.
+   winget install EasyUEFI.EasyUEFI --accept-source-agreements --accept-package-agreements --force
+
+ * DiskGenius: Potente software para gestión de particiones, recuperación de datos y copias de seguridad.
+ * MiniTool Partition Wizard: (Asumido de "Wizard Partition") Una herramienta completa para gestionar particiones.
+ * Grub Customizer: (Nota: Principalmente para Linux) Herramienta gráfica para configurar el menú de arranque GRUB, útil en sistemas de arranque dual con Linux.
+8. Herramientas Adicionales
+Herramientas de Red Inalámbrica
+ * PENetwork: (Descripción pendiente) Este nombre puede referirse a diversas utilidades de red para entornos Windows PE o herramientas de análisis. Se requiere más contexto para una descripción precisa.
+Visores de Documentos
+ * Sumatra PDF: Lector de documentos (PDF, ePub, Mobi, etc.) gratuito, ligero y rápido.
+   winget install SumatraPDF.SumatraPDF --accept-source-agreements --accept-package-agreements
+
+Utilidades de Desarrollo (Dev)
+ * trae.ai: (Descripción pendiente) Se necesita más información para determinar la función de esta herramienta o servicio.
+9. Notas de Configuración Avanzada
+Para una gestión de configuración más robusta (Dotfiles):
+ * Personaliza: Edita los archivos de configuración de tus herramientas (ej. .zshrc, settings.json de VSCode).
+ * Versiona tus cambios: Usa Git para guardar tus configuraciones en un repositorio remoto (GitHub, GitLab). Esto te permite replicar tu entorno en cualquier máquina con facilidad.
+ * Automatiza: Crea un script de instalación (PowerShell en Windows) que cree enlaces simbólicos desde tu repositorio de dotfiles a las ubicaciones correctas en tu sistema.
+
+
 
 ## 1. Preparación del Sistema
 
